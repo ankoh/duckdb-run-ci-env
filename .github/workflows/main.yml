@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ankoh/dashql-ci-env
+  IMAGE_NAME: ankoh/duckdb-run-ci-env
 
 jobs:
   docker_build:
