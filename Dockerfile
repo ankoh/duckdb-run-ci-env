@@ -42,5 +42,12 @@ RUN export RUSTUP_HOME=/opt/rust \
     && rustup target add wasm32-unknown-unknown \
     && cargo install wasm-pack wrangler
 
+RUN echo "export CARGO_HOME=/opt/rust" >> /opt/env.sh \
+    && echo "export RUSTUP_HOME=/opt/rust" >> /opt/env.sh \
+    && echo "export PATH=$PATH:/opt/rust/bin" >> /opt/env.sh \
+    && echo "source /opt/nvm/nvm.sh" >> /opt/env.sh \
+    && printf '#!/bin/bash\nsource /opt/env.sh\nexec env "$@"\n' > /opt/entrypoint.sh \
+    && chmod +x /opt/entrypoint.sh
+
 ENTRYPOINT ["tini", "-v", "--", "/opt/entrypoint.sh"]
 WORKDIR /github/workspace
