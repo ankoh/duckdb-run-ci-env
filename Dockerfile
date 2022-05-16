@@ -1,4 +1,6 @@
-FROM ubuntu:22.04
+# Wait until this is resolved before upgrading to 22.04:
+# https://stackoverflow.com/questions/71941032/why-i-cannot-run-apt-update-inside-a-fresh-ubuntu22-04
+FROM ubuntu:20.04
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
