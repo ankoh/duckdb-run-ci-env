@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 RUN apt-get update -qq \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         pkg-config tini build-essential git \
-        ccache cmake ninja-build llvm clang clang-format clang-tidy curl python python3 \
+        ccache cmake ninja-build llvm clang clang-format clang-tidy curl python3 \
         bison flex \
         brotli rsync \
         libssl-dev \
